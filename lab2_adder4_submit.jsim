@@ -1,0 +1,67 @@
+.include "lab2adder4checkoff.jsim"
+.include "nominal.jsim"
+
+* 2-input nand: inputs are a and b, output is z
+.subckt nand2 a b z
+MPD1 z a 1 0 NENH sw=8 sl=1
+MPD2 1 b 0 0 NENH sw=8 sl=1
+MPU1 z a vdd vdd PENH sw=9 sl=1
+MPU2 z b vdd vdd PENH sw=9 sl=1
+.ends
+
+* inverter: input is a, output is z
+.subckt inv a z
+MPD1 z a 0 0 NENH sw=16 sl=1
+MPU1 z a vdd vdd PENH sw=16 sl=1
+.ends
+
+* 2-input nor: inputs are a and b, output is z
+.subckt nor2 a b z
+MPD1 z a 0 0 NENH sw=8 sl=1
+MPD2 z b 0 0 NENH sw=8 sl=1
+MPU1 z a 1 vdd PENH sw=9 sl=1
+MPU2 1 b vdd vdd PENH sw=9 sl=1
+.ends
+
+* 2-input xor: input is a and b, output is z
+.subckt xor2 a b z
+* Build your own xor gate here
+* BEGIN ANSWER
+
+
+*END ANSWER
+.ends
+
+* 2-input xnor: input is a and b, output is z
+.subckt xnor2 a b z
+* Build your own xnor gate here
+* BEGIN ANSWER
+
+
+*END ANSWER
+.ends
+
+
+* FA: 1-bit Full Adder circuit
+* Input: a, b, ci 
+* Output: s, co
+.subckt FA a b ci s co
+* write your FA circuitry here
+* BEGIN ANSWER
+
+
+
+
+
+
+*END ANSWER
+.ends
+
+
+.subckt ADDER4 a3 a2 a1 a0 b3 b2 b1 b0 s4 s3 s2 s1 s0
+Xbit0 a0 b0 0 s0 c0 FA
+Xbit1 a1 b1 c0 s1 c1 FA
+Xbit2 a2 b2 c1 s2 c2 FA
+Xbit3 a3 b3 c2 s3 s4 FA
+.ends
+

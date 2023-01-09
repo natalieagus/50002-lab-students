@@ -1,0 +1,72 @@
+* .include "nominal.jsim"
+* .include "stdcell.jsim"
+* .include "lab4_adder.jsim"
+* .include "lab4_testpc.jsim"
+
+.subckt PC_UNIT clk reset id[15:0] PCSEL[2:0] ra[31:0] ia[31:0] PC_4_SXTC[31:0] PC_4[31:0]
+
+* constant XAddr
+XAddr1 vdd#2 XAddr31 XAddr3 bus
+XAddr2 0#30 XAddr[30:4] XAddr[2:0] bus
+
+* constant ILLOP
+XILLOP1 vdd#2 ILLOP31 ILLOP2 bus
+XILLOP2 0#30 ILLOP[30:3] ILLOP[1:0] bus
+
+* constant 4
+XFour1 vdd FOUR2 bus
+XFour2 0#31 FOUR[31:3] FOUR[1:0] bus
+
+* constant RESET
+Xreset1 vdd RESETAddr31 bus
+Xreset2 0#31 RESETAddr[30:0] bus
+
+***** JMP mux *************
+* BEGIN ANSWER
+
+
+
+* END ANSWER
+****************************
+
+**** 5-to-1 PCSEL mux *****
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+
+**** RESET mux *************
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+**** PC Register ***********
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+
+**** add-4 unit ************ 
+Xincrement4 ia[31:0] FOUR[31:0] increment_4[31:0] adder32
+* set supervisor bit to be equal to ia31
+XPC41 ia31 PC_431 bus 
+XPC42 increment_4[30:2] PC_4[30:2] bus 
+* set lower to bits to 0b00
+XPC43 0#2 PC_4[1:0] bus 
+****************************
+
+
+**** shift add unit ********
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+.ends

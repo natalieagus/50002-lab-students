@@ -1,0 +1,64 @@
+* .include "nominal.jsim"
+* .include "stdcell.jsim"
+* .include "lab4_testregfile.jsim"
+
+.subckt REGFILE_UNIT clk wasel ra2sel werf id[25:11] WDSEL_OUT[31:0] ra[31:0] rb[31:0] mwd[31:0] z
+
+* Constant XP
+Xxp1 vdd#4 XP[4:1] bus 
+Xxp2 0 XP0 bus
+
+**** RA2SEL mux ************
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+**** WASEL mux *************
+* BEGIN ANSWER
+
+
+* END ANSWER
+****************************
+
+
+**** Regfile memory ********
+* BEGIN ANSWER
+
+* END ANSWER
+
+* R31 checker for RD1 
+* BEGIN ANSWER
+
+* END ANSWER
+
+* RD1 mux
+* BEGIN ANSWER
+
+* END ANSWER
+
+* R31 checker for RD2 
+* BEGIN ANSWER
+
+* END ANSWER
+
+* RD2 mux
+* BEGIN ANSWER
+
+* END ANSWER
+****************************
+
+**** Z computation *********
+* BEGIN ANSWER
+
+* END ANSWER
+****************************
+
+**** mwd[31:0] output ******
+* BEGIN ANSWER
+
+* END ANSWER
+****************************
+
+.ends

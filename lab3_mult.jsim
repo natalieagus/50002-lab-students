@@ -1,0 +1,190 @@
+*circuit for multiplier
+.subckt mult32 A[31:0] B[31:0] P[31:0]
+*input level 1, l1
+Xb0 A[31:0] B0#32 lt11[31:0] and2
+Xb1 A[30:0] B1#31 lt12[30:0] and2
+.connect lt110 p0
+*output level 1, lo1
+Xt0 lt111 lt120 0 p1 cot10 FA
+Xt1  lt11[31:2] lt12[30:1] cot1[29:0] lot1[30:1] cot1[30:1] FA
+
+*input level 2, l2
+Xb2 A[29:0] B2#30 lt2[29:0] and2
+*output level 2, lo2
+Xt20 lot11 lt20 0 p2 cot20 FA
+Xt2  lot1[30:2] lt2[29:1] cot2[28:0] lot2[29:1] cot2[29:1] FA
+
+*input level 3, l3
+Xb3 A[28:0] B3#29 lt3[28:0] and2
+*output level 3, lo3
+Xt30 lot21 lt30 0 p3 cot30 FA
+Xt3  lot2[29:2] lt3[28:1] cot3[27:0] lo3[28:1] cot3[28:1] FA
+
+*input level 4, l4
+Xb4 A[27:0] B4#28 l4[27:0] and2
+*output level 4, lo4
+Xl40 lo31 l40 0 p4 co40 FA
+Xl4  lo3[28:2] l4[27:1] co4[26:0] lo4[27:1] co4[27:1] FA
+
+*input level 5, l5
+Xb5 A[26:0] B5#27 l5[26:0] and2
+*output level 5, lo5
+Xl50 lo41 l50 0 p5 co50 FA
+Xl5  lo4[27:2] l5[26:1] co5[25:0] lo5[26:1] co5[26:1] FA
+
+*input level 6, l6
+Xb6 A[25:0] B6#26 l6[25:0] and2
+*output level 6, lo6
+Xl60 lo51 l60 0 p6 co60 FA
+Xl6  lo5[26:2] l6[25:1] co6[24:0] lo6[25:1] co6[25:1] FA
+
+*input level 7, l7
+Xb7 A[24:0] B7#25 l7[24:0] and2
+*output level 7, lo7
+Xl70 lo61 l70 0 p7 co70 FA
+Xl7  lo6[25:2] l7[24:1] co7[23:0] lo7[24:1] co7[24:1] FA
+
+*input level 8, l8
+Xb8 A[23:0] B8#24 l8[23:0] and2
+*output level 8, lo8
+Xl80 lo71 l80 0 p8 co80 FA
+Xl8  lo7[24:2] l8[23:1] co8[22:0] lo8[23:1] co8[23:1] FA
+
+*input level 9, l9
+Xb9 A[22:0] B9#23 l9[22:0] and2
+*output level 9, lo9
+Xl90 lo81 l90 0 p9 co90 FA
+Xl9  lo8[23:2] l9[22:1] co9[21:0] lo9[22:1] co9[22:1] FA
+
+*input level 10, l10
+Xb10 A[21:0] B10#22 l10[21:0] and2
+*output level 10, lo10
+Xl100 lo91 l100 0 p10 co100 FA
+Xl10  lo9[22:2] l10[21:1] co10[20:0] lo10[21:1] co10[21:1] FA
+
+*input level 11, l11
+Xb11 A[20:0] B11#21 l11[20:0] and2
+*output level 11, lo11
+Xl110 lo101 l110 0 p11 co110 FA
+Xl11  lo10[21:2] l11[20:1] co11[19:0] lo11[20:1] co11[20:1] FA
+
+*input level 12, l12
+Xb12 A[19:0] B12#20 l12[19:0] and2
+*output level 12, lo12
+Xl120 lo111 l120 0 p12 co120 FA
+Xl12  lo11[20:2] l12[19:1] co12[18:0] lo12[19:1] co12[19:1] FA
+
+*input level 13, l13
+Xb13 A[18:0] B13#19 l13[18:0] and2
+*output level 13, lo13
+Xl130 lo121 l130 0 p13 co130 FA
+Xl13  lo12[19:2] l13[18:1] co13[17:0] lo13[18:1] co13[18:1] FA
+
+*input level 14, l14
+Xb14 A[17:0] B14#18 l14[17:0] and2
+*output level 14, lo14
+Xl140 lo131 l140 0 p14 co140 FA
+Xl14  lo13[18:2] l14[17:1] co14[16:0] lo14[17:1] co14[17:1] FA
+
+*input level 15, l15
+Xb15 A[16:0] B15#17 l15[16:0] and2
+*output level 15, lo15
+Xl150 lo141 l150 0 p15 co150 FA
+Xl15  lo14[17:2] l15[16:1] co15[15:0] lo15[16:1] co15[16:1] FA
+
+*input level 16, l16
+Xb16 A[15:0] B16#16 l16[15:0] and2
+*output level 16, lo16
+Xl160 lo151 l160 0 p16 co160 FA
+Xl16  lo15[16:2] l16[15:1] co16[14:0] lo16[15:1] co16[15:1] FA
+
+*input level 17, l17
+Xb17 A[14:0] B17#15 l17[14:0] and2
+*output level 17, lo17
+Xl170 lo161 l170 0 p17 co170 FA
+Xl17  lo16[15:2] l17[14:1] co17[13:0] lo17[14:1] co17[14:1] FA
+
+*input level 18, l18
+Xb18 A[13:0] B18#14 l18[13:0] and2
+*output level 18, lo18
+Xl180 lo171 l180 0 p18 co180 FA
+Xl18  lo17[14:2] l18[13:1] co18[12:0] lo18[13:1] co18[13:1] FA
+
+*input level 19, l19
+Xb19 A[12:0] B19#13 l19[12:0] and2
+*output level 19, lo19
+Xl190 lo181 l190 0 p19 co190 FA
+Xl19  lo18[13:2] l19[12:1] co19[11:0] lo19[12:1] co19[12:1] FA
+
+*input level 20, l20
+Xb20 A[11:0] B20#12 l20[11:0] and2
+*output level 120, lo120
+Xl200 lo191 l200 0 p20 co200 FA
+Xl20  lo19[12:2] l20[11:1] co20[10:0] lo20[11:1] co20[11:1] FA
+
+*input level 21, l21
+Xb21 A[10:0] B21#11 l21[10:0] and2
+*output level 121, lo121
+Xl210 lo201 l210 0 p21 co210 FA
+Xl21  lo20[11:2] l21[10:1] co21[9:0] lo21[10:1] co21[10:1] FA
+
+*input level 22, l22
+Xb22 A[9:0] B22#10 l22[9:0] and2
+*output level 122, lo122
+Xl220 lo211 l220 0 p22 co220 FA
+Xl22  lo21[10:2] l22[9:1] co22[8:0] lo22[9:1] co22[9:1] FA
+
+*input level 23, l23
+Xb23 A[8:0] B23#9 l23[8:0] and2
+*output level 123, lo123
+Xl230 lo221 l230 0 p23 co230 FA
+Xl23  lo22[9:2] l23[8:1] co23[7:0] lo23[8:1] co23[8:1] FA
+
+*input level 24, l24
+Xb24 A[7:0] B24#8 l24[7:0] and2
+*output level 124, lo124
+Xl240 lo231 l240 0 p24 co240 FA
+Xl24  lo23[8:2] l24[7:1] co24[6:0] lo24[7:1] co24[7:1] FA
+
+*input level 25, l25
+Xb25 A[6:0] B25#7 l25[6:0] and2
+*output level 125, lo125
+Xl250 lo241 l250 0 p25 co250 FA
+Xl25  lo24[7:2] l25[6:1] co25[5:0] lo25[6:1] co25[6:1] FA
+
+*input level 26, l26
+Xb26 A[5:0] B26#6 l26[5:0] and2
+*output level 126, lo126
+Xl260 lo251 l260 0 p26 co260 FA
+Xl26  lo25[6:2] l26[5:1] co26[4:0] lo26[5:1] co26[5:1] FA
+
+*input level 27, l27
+Xb27 A[4:0] B27#5 l27[4:0] and2
+*output level 127, lo127
+Xl270 lo261 l270 0 p27 co270 FA
+Xl27  lo26[5:2] l27[4:1] co27[3:0] lo27[4:1] co27[4:1] FA
+
+*input level 28, l28
+Xb28 A[3:0] B28#4 l28[3:0] and2
+*output level 128, lo128
+Xl280 lo271 l280 0 p28 co280 FA
+Xl28  lo27[4:2] l28[3:1] co28[2:0] lo28[3:1] co28[3:1] FA
+
+*input level 29, l29
+Xb29 A[2:0] B29#3 l29[2:0] and2
+*output level 129, lo129
+Xl290 lo281 l290 0 p29 co290 FA
+Xl29  lo28[3:2] l29[2:1] co29[1:0] lo29[2:1] co29[2:1] FA
+
+*input level 30, l30
+Xb30 A[1:0] B30#2 l30[1:0] and2
+*output level 130, lo130
+Xl300 lo291 l300 0 p30 co300 FA
+Xl30  lo292 l301 co300 lo301 co301 FA
+
+*input level 31, l31
+Xb31 A0 B31 l310 and2
+*output level 131, lo131
+Xl31 lo301 l310 0 p31 co310 FA
+
+.ends

@@ -1,0 +1,43 @@
+.include beta.uasm
+.include lab5checkoff.uasm
+
+
+count_bull_cows: | your subroutine must have this name
+	| standard subroutine entry sequence
+	PUSH(LP)	
+	PUSH(BP)	
+	MOVE(SP,BP)	
+	| PUSH all used registers
+	PUSH(R1)		| bulls
+	PUSH(R2)		| cows
+	PUSH(R3)		| i
+	PUSH(R4)		| j
+	PUSH(R5)		| btemp
+	PUSH(R6)		| atry
+	PUSH(R7)		| btry
+	PUSH(R8)		| mask
+	PUSH(R9)		| temp reg
+	PUSH(R10)		| temp reg
+	PUSH(R11)		| a
+	PUSH(R12)		| b
+	LD(BP,-12,R11)		| load the arg value of constant a to R11
+	LD(BP,-16,R12)		| load the arg value of constant b to R12
+	CMOVE(0,R1)		| set initial val of var bulls = 0
+	CMOVE(0xF,R8)		| set initial val of var mask = 0xF
+	CMOVE(0,R3)		| set initial val of var i = 0
+  	CMOVE(0,R4)   | set initial val of var j = 0
+	
+	|||||||||||||||||||||||||||||||||||||||||||||||
+	|||| … your code here, leave score (return value) in R0 …
+	|||||||||||||||||||||||||||||||||||||||||||||||
+
+	| … POP saved registers above in reverse order…
+	MOVE(BP,SP)
+	POP(BP)
+	POP(LP)
+	RTN()
+
+
+StackBase: 
+	LONG(.+4)		| Pointer to the bottom of stack
+	.=.+0x1000		| Reserve space for stack

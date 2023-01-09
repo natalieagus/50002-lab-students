@@ -1,0 +1,127 @@
+.checkoff "" "Lab #4: regfile" 0
+
+Vclk clk 0 pulse(3.3,0,49.9ns,.1ns,.1ns,49.9ns,100ns)
+Xregfiletest clk wasel ra2sel werf id[25:11] WDSEL_OUT[31:0] ra[31:0] rb[31:0] mwd[31:0] z REGFILE_UNIT
+
+* driving signals
+Wwasel wasel nrz(0,3.3,100n,0n,.1n,.1n)
++ 0 0 
++ 0 0 
++ 0 0 
++ 1 0 
++ 0 0 
++ 0 0 
++ 0 0 
++ 0 0 
+
+Wra2sel ra2sel nrz(0,3.3,100n,0n,.1n,.1n)
++ 0 0 
++ 0 0 
++ 0 0 
++ 0 0 
++ 1 1 
++ 1 1 
++ 1 1 
++ 0 0 
+
+Wwerf werf nrz(0,3.3,100n,0n,.1n,.1n)
++ 1 0
++ 1 0
++ 0 0
++ 1 0
++ 0 0
++ 0 0
++ 1 0
++ 0 0 
+
+* each test spans 2 cycles
+* test write to R1
+* test write to R31
+* test write to R1 werf 0, so R1 old value 0xF should stay
+* test write to XP vs R1 when wasel 1
+* test read from rc as R31
+* test read from rc as R30 
+* test read from rc as R30 with write 
+* test read from R31 on all ports
+
+* Rc 
+Widrc id[25:21] nrz(0,3.3,100n,0n,.1n,.1n)
++ 1 1
++ 31 31
++ 1 1
++ 1 1 
++ 31 31
++ 30 30
++ 30 30
++ 31 31
+
+* Ra
+Widra id[20:16] nrz(0,3.3,100n,0n,.1n,.1n)
++ 31 1
++ 31 31
++ 1 1
++ 31 30
++ 31 31
++ 31 31
++ 31 31
++ 31 31
+
+* Rb
+Widrb id[15:11] nrz(0,3.3,100n,0n,.1n,.1n)
++ 31 1
++ 31 31
++ 1 1
++ 1 1 
++ 1 1 
++ 1 1 
++ 1 1 
++ 31 31
+
+Wwdselout WDSEL_OUT[31:0] nrz(0,3.3,100n,0n,.1n,.1n)
++ 0x0000000F 0x00000000
++ 0x0000000F 0x00000000
++ 0x00000ABC 0x00000ABC
++ 0x00000ABC 0x00000ABC
++ 0x00000DEF 0x00000DEF
++ 0x00000DEF 0x00000DEF
++ 0x00000DEF 0x00000DEF
++ 0x00000DEF 0x00000DEF
+
+.verify mwd[31:0] periodic(95n,100n)
++ 0x00000000 0x0000000F 0x00000000 0x00000000
++ 0x0000000F 0x0000000F 0x0000000F 0x0000000F 
++ 0x00000000 0x00000000 0x00000ABC 0x00000ABC
++ 0x00000ABC 0x00000DEF 0x00000000 0x00000000
+
+
+.verify ra[31:0] periodic(95n,100n)
++ 0x00000000 0x0000000F 0x00000000 0x00000000
++ 0x0000000F 0x0000000F 0x00000000 0x00000ABC 
++ 0x00000000 0x00000000 0x00000000 0x00000000
++ 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+.verify rb[31:0] periodic(95n,100n)
++ 0x00000000 0x0000000F 0x00000000 0x00000000
++ 0x0000000F 0x0000000F 0x0000000F 0x0000000F 
++ 0x00000000 0x00000000 0x00000ABC 0x00000ABC
++ 0x00000ABC 0x00000DEF 0x00000000 0x00000000
+
+
+.verify z periodic(95n,100n)
++ 1 0 1 1 
++ 0 0 1 0 
++ 1 1 1 1
++ 1 1 1 1
+
+
+.tran 1600n
+.plot clk 
+.plot z 
+.plot id[25:21]
+.plot id[20:16]
+.plot id[15:11]
+.plot L(mwd[31:0])
+.plot L(ra[31:0])
+.plot L(rb[31:0])
+.plot L(WDSEL_OUT[31:0])

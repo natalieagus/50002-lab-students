@@ -1,0 +1,22 @@
+* .include "nominal.jsim"
+* .include "stdcell.jsim"
+* .include "lab4_adder.jsim"
+* .include "lab4_alu.jsim"
+
+.subckt ALUWDSEL_UNIT ia31 id[15:0] ra[31:0] rb[31:0] PC_4[31:0] PC_4_SXTC[31:0] ASEL BSEL ALUFN[5:0] WDSEL[1:0] mrd[31:0] ma[31:0] WDSEL_OUT[31:0]
+
+* ASEL mux
+Xaselmux ASEL#32 ra[31:0] 0 PC_4_SXTC[30:2] 0#2 aselout[31:0] mux2 
+
+* BSEL mux
+Xbselmux BSEL#32 rb[31:0] id15#16 id[15:0] bselout[31:0] mux2 
+
+* ALU 
+Xaluunit ALUFN[5:0] aselout[31:0] bselout[31:0] alu[31:0] z v n alu 
+
+* WDSEL mux
+Xwdselmux  WDSEL1#32 WDSEL0#32 ia31 PC_4[30:2] 0#2  mrd[31:0]  alu[31:0] 0#32 WDSEL_OUT[31:0] mux4 
+
+* ma output
+Xma alu[31:0] ma[31:0] bus
+.ends

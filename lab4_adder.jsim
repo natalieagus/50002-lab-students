@@ -1,0 +1,18 @@
+.subckt FA a b cin s co
+* circuit for S
+Xs1 a b s1 xor2
+Xs2 s1 cin s xor2
+
+* circuit for co
+Xc1 a b co1 nand2
+Xc2 a cin co2 nand2
+Xc3 b cin co3 nand2
+Xc4 co1 co2 co3 co nand3
+.ends
+
+.subckt adder32 a[31:0] b[31:0] s[31:0] 
+*circuit for 32 bit adder
+Xbit0 a0 b0 0 s0 c0 FA
+Xbit a[30:1] b[30:1] c[29:0] s[30:1] c[30:1] FA
+Xbit31 a31 b31 c30 s31 constant0 FA
+.ends

@@ -1,0 +1,14 @@
+.include "nominal.jsim"
+.include "lab2cmoscheckoff.jsim"
+
+.subckt F A B C Z
+* BEGIN ANSWER
+* NOT F CMOS circuitry: Pullup
+
+
+* NOT F CMOS circuitry: Pulldown
+
+* Inverter
+
+*END ANSWER
+.ends

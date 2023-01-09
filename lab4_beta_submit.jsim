@@ -1,0 +1,26 @@
+.include "nominal.jsim"
+.include "stdcell.jsim"
+.include "lab4_control_submit.jsim"
+.include "lab4_pc_submit.jsim"
+.include "lab4_regfile_submit.jsim"
+.include "lab4_aluwdsel.jsim"
+.include "lab4_adder.jsim"
+.include "lab4_alu.jsim"
+.include "lab4checkoff.jsim"
+
+
+.subckt beta clk reset irq ia[31:0] id[31:0] ma[31:0] moe mrd[31:0] wr mwd[31:0]
+* BEGIN ANSWER
+* initialise pc unit circuit
+
+* initialise regfile unit circuit
+
+* initialise control unit circuit
+
+* initialise alu+wdsel unit circuit
+
+* END ANSWER
+.ends
+
+
+

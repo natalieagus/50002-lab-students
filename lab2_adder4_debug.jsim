@@ -1,0 +1,17 @@
+.include "8clocks.jsim"
+.include "lab2_adder4_submit.jsim"
+
+Xdriver1 clk1 a inv
+Xdriver2 clk2 b inv
+Xdriver3 clk3 ci inv
+X1 a b ci s co FA
+
+.tran 40ns
+
+.plot L(a)
+.plot L(b)
+.plot L(ci)
+.plot L(s)
+.plot L(co)
+
+

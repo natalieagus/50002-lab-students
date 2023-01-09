@@ -1,0 +1,74 @@
+.include "nominal.jsim"
+.include "stdcell.jsim"
+.include "lab3_mult.jsim"
+* .include "lab3_testadder.jsim"
+* .include "lab3_testcompare.jsim"
+* .include "lab3_testboolean.jsim"
+* .include "lab3_testshifter.jsim"
+* .include "lab3_testmultiply.jsim"
+.include "lab3checkoff.jsim"
+
+
+
+
+**********************************
+**** FA circuit ******************
+.subckt FA a b cin s co
+* Paste your answer from Lab 2 here
+* Replace the gates using stdcell gates instead of your custom gates
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+
+**********************************
+**** Adder32 circuit *************
+.subckt adder32 ALUFN[0] a[31:0] b[31:0] s[31:0] z v n
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+*********************************
+
+
+**********************************
+**** Compare32 circuit ***********
+.subckt compare32 ALUFN[2:1] z v n cmp[31:0]
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+**********************************
+
+**********************************
+**** Boolean32 circuit ***********
+.subckt boole32 ALUFN[3:0] A[31:0] B[31:0] boole[31:0]
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+**********************************
+
+**********************************
+**** Shifter32 circuit ***********
+.subckt shift32 ALUFN[1:0] A[31:0] B[4:0] shift[31:0]
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+**********************************
+
+**********************************
+**** ALU32 circuit ***************
+.subckt alu ALUFN[5:0] A[31:0] B[31:0] alu[31:0] z v n
+* BEGIN ANSWER
+
+
+* END ANSWER
+.ends
+**********************************
